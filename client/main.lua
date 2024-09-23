@@ -107,6 +107,8 @@ local function setupVehicleMenu()
 
     vehicleItems[#vehicleItems + 1] = convert(config.vehicleDoors)
 
+    vehicleItems[#vehicleItems + 1] = convert(config.vehicleWindows)
+
     if config.enableExtraMenu then
         vehicleItems[#vehicleItems + 1] = convert(config.vehicleExtras)
     end
@@ -249,6 +251,22 @@ RegisterNetEvent('qb-radialmenu:client:openDoor', function(id)
             else
                 SetVehicleDoorOpen(closestVehicle, door, false, false)
             end
+        end
+    else
+        exports.qbx_core:Notify(locale('error.no_vehicle_found'), 'error', 2500)
+    end
+end)
+
+RegisterNetEvent('qb-radialmenu:client:toggleWindow', function(id)
+    local window = id
+    local coords = GetEntityCoords(cache.ped)
+    local closestVehicle = cache.vehicle or lib.getClosestVehicle(coords, 5.0, false)
+
+    if closestVehicle ~= 0 then
+        if IsVehicleWindowIntact(closestVehicle, window) then
+            RollDownWindow(closestVehicle, window)
+        else
+            RollUpWindow(closestVehicle, window)
         end
     else
         exports.qbx_core:Notify(locale('error.no_vehicle_found'), 'error', 2500)
