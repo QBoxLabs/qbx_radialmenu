@@ -448,6 +448,42 @@ return {
         },
     },
 
+        vehicleWindows = {
+        id = 'vehicleWindows',
+        icon = 'window-maximize',
+        label = 'Window',
+        items = {
+            {
+                id = 'window0',
+                icon = 'window-maximize',
+                label = 'Driver Window',
+                event = 'qb-radialmenu:client:toggleWindow',
+                args = 0,
+            },
+            {
+                id = 'window1',
+                icon = 'window-maximize',
+                label = 'Passanger Window',
+                event = 'qb-radialmenu:client:toggleWindow',
+                args = 1,
+            },
+            {
+                id = 'window2',
+                icon = 'window-maximize',
+                label = 'Back Left Window',
+                event = 'qb-radialmenu:client:toggleWindow',
+                args = 2,
+            },
+            {
+                id = 'window3',
+                icon = 'window-maximize',
+                label = 'Back Right Window',
+                event = 'qb-radialmenu:client:toggleWindow',
+                args = 3,
+            },
+        },
+    },
+
     vehicleSeats = {
         id = 'vehicleSeats',
         icon = 'chair',
